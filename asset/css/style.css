@@ -58,13 +58,12 @@ a:active{
     text-decoration: none;
 }
 
+img {
+    width: 100%;
+}
 
 .white {
     color: #fff !important;
-}
-
-img {
-    width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -136,14 +135,12 @@ h1, h2, h3, h4, h5, h6 {
 .page-header {
     background: url(../images/banner.jpg) no-repeat;
     padding: 50px 0;
-    margin-top: 80px;
+    margin: 10px 0 10px;
 }
 
 .page-header h1 {
     color: #fff;
 }
-
-
 
 
 /*------------------------------------------*/
@@ -213,7 +210,7 @@ ul.social-list li:first-child {
 }
 
 ul.social-list li a:hover{
-    background: #FF432E;
+    background: #cd2127;
 }
 
 
@@ -355,9 +352,9 @@ a.navbar-brand {
 
 .navbar-default .navbar-nav > li > a.active, 
 .navbar-default .navbar-nav > li:hover > a {
-	border-top: 2px solid #FF432E;
+	border-top: 2px solid #cd2127;
     color: #fff;
-    background: #FF432E;
+    background: #cd2127;
     //padding: 25px 15px 30px;
 }
 
@@ -372,7 +369,7 @@ a.navbar-brand {
     top: 97%;
     width: 180px;
 	background-color: #fff;
-    border-top: 3px solid #FF432E;
+    border-top: 3px solid #cd2127;
     visibility: hidden;
     z-index: 2;
 	opacity: 0;
@@ -418,13 +415,13 @@ a.navbar-brand {
 
 .dropdown > li:hover > a, 
 .sup-dropdown li:hover > a {
-    background: #FF432E;
+    background: #cd2127;
     color: #fff;
 }
 
 .dropdown  li a.active, 
 .sup-dropdown li a.active {
-	background: #FF432E;
+	background: #cd2127;
     color: #fff;
 }
 
@@ -555,8 +552,8 @@ a.navbar-brand {
 
 
 #about-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     //background: url(../images/parallax/bg-01.jpg) no-repeat;
     background-size: cover;
     background-position: center;
@@ -564,8 +561,8 @@ a.navbar-brand {
 
 #about-section-2 {
     background: #f9f9f9;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 
@@ -823,7 +820,7 @@ iframe {
 
 
 .call-to-action {
-    background: url(../images/parallax/call-to.jpg);
+    background: #1d1d1d;
     background-attachment: fixed;
     background-size: cover;
     background-position: 50% 90%;
@@ -858,8 +855,8 @@ iframe {
 
 
 #team-section {
-    padding-top: 80px;
-    padding-bottom: 120px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     background: #fff;
     color: #111;
     overflow: hidden;
@@ -1229,18 +1226,18 @@ and (min-width : 551px){
 /*----------------------------------------------------------*/
 
 .fun-facts {
-    background: url(../images/parallax/bg-02.jpg);
+    background: #1d1d1d;
     background-attachment: fixed;
     background-size: cover;
-    padding-top: 120px;
-    padding-bottom: 80px;
+    padding-top: 10px;
+    padding-bottom: 0px;
     overflow: hidden;
 }
 
 .counter-item {
     position:relative;
     text-align:center;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     background: #fff;
     padding: 0 20px 40px 20px;
 }
@@ -1339,6 +1336,40 @@ h3.pricing-title {
 }
 
 
+/***************************************/
+/* Start Car Color Section
+/***************************************/
+
+
+#car-color-section {
+    background-size: cover;
+    margin: 10px 0 20px;
+    padding: 20px 0;*/
+    color: #fff;
+}
+
+.car-color-item {
+    text-align: center;
+}
+
+.car-color-item p {
+    color: #fff;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.car-color-item img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.car-color-item .desgnation {
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
 
 
 
@@ -1349,9 +1380,11 @@ h3.pricing-title {
 
 
 #testimonial-section {
-    background: url(../images/parallax/call-to.jpg) no-repeat;
+    border-top: 1px solid #363636;
+    background: #1d1d1d;
     background-size: cover;
-    padding: 100px 0;
+    margin: 10px 0 10px;
+    padding: 10px 0;*/
     color: #fff;
 }
 
@@ -1467,7 +1500,7 @@ h3.pricing-title {
 }
 
 .footer-address ul li a:hover {
-    color: #FF432E;
+    color: #cd2127;
 }
 
 .latest-tweet .media-body {
@@ -1481,7 +1514,7 @@ h3.pricing-title {
 
 .latest-tweet h4.media-heading {
     font-size: 10px;
-    color: #FF432E;
+    color: #cd2127;
 }
 
 
@@ -1508,7 +1541,7 @@ h3.pricing-title {
 }
 
 .footer-social ul.social-list li a:hover {
-    background: #FF432E;
+    background: #cd2127;
     color: #000;
 }
 
@@ -1545,7 +1578,7 @@ h3.pricing-title {
 }
 
 .copyright-section a:hover {
-    color: #FF432E;
+    color: #cd2127;
 }
 
 .copyright-menu li {
@@ -1564,7 +1597,7 @@ h3.pricing-title {
 }
 
 .copyright-menu li a:hover {
-    color: #FF432E;
+    color: #cd2127;
 }
 
 /* End Copyright Section */
