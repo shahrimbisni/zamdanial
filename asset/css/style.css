@@ -133,7 +133,8 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .page-header {
-    background: url(../images/banner.jpg) no-repeat;
+    /*background: url(../images/banner.jpg) no-repeat;*/
+    background: #1d1d1d;
     padding: 50px 0;
     margin: 10px 0 10px;
 }
@@ -310,7 +311,7 @@ ul.social-list li a:hover i {
 a.navbar-brand {
     font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
     font-size: 40px;
-    padding-top: 20px;
+    padding-top: 15px;
     color: #ff432e !important;
 }
 
