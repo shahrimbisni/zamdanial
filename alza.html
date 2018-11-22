@@ -382,8 +382,545 @@
                 </div><!-- /.col-md-3 -->
             </div>
         </div>
-    </section>
+    </section><br>
     <!-- End Team Member Section -->
+
+    <!-- Start Contact Us Section -->
+    <div align="center"><h2>Borang Pemohonan</h2></div><br>
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+                        <div class="row">
+
+                            <div class="col-md-6 wow fadeInLeft" data-wow-duration="2s" data-wow-delay="600ms">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Nama Penuh Anda *" id="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Nombor Telefon Anda *" id="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Alamat Surat Menyurat Anda *" id="address" required></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <select name="car_model" id="car_model" class="form-control" required>
+                                        <option value="">Pilihan Model Kerete *</option>
+                                        <option value="car_model_alza">Alza</option>
+                                        <option value="car_model_myvi">Myvi</option>
+                                        <option value="car_model_bezza">Bezza</option>
+                                        <option value="car_model_axia">Axia</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="color_alza">
+                                    <select name="color_alza" id="color_alza" class="form-control">
+                                        <option value="alza_grey">Granite Grey / Metallic</option>
+                                        <option value="alza_blue">Electric Blue / Metallic</option>
+                                        <option value="alza_purple">Mystical Purple / Metallic</option>
+                                        <option value="alza_silver">Glittering Silver / Metallic</option>
+                                        <option value="alza_white">Ivory White / Metallic</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="color_myvi">
+                                    <select name="color_myvi" id="color_myvi" class="form-control">
+                                        <option value="myvi_grey">Granite Grey / Metallic</option>
+                                        <option value="myvi_green">Peppermint Green / Metallic</option>
+                                        <option value="myvi_red">Lava Red / Metallic</option>
+                                        <option value="myvi_purple">Mystical Purple / Metallic</option>
+                                        <option value="myvi_silver">Glittering Silver / Metallic</option>
+                                        <option value="myvi_white">Ivory White / Solid</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="color_bezza">
+                                    <select name="color_bezza" id="color_bezza" class="form-control">
+                                        <option value="bezza_brown">Sugar Brown / Metallic</option>
+                                        <option value="bezza_blue">Ocean Blue / Metallic</option>
+                                        <option value="bezza_red">Lava Red / Metallic</option>
+                                        <option value="bezza_ebony">Ebony / Metallic</option>
+                                        <option value="bezza_silver">Glittering Silver / Metallic</option>
+                                        <option value="bezza_white">Ivory White / Solid</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="color_axia">
+                                    <select name="color_axia" id="color_axia" class="form-control">
+                                        <option value="axia_blue">Midnight Blue / Metallic</option>
+                                        <option value="axia_red">Lava Red / Metallic</option>
+                                        <option value="axia_black">Ebony Black/ Metallic</option>
+                                        <option value="axia_silver">Glittering Silver / Metallic</option>
+                                        <option value="axia_white">Ivory White / Solid</option>
+                                        <option value="axia_yellow">Sunflower Yellow / Solid</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Mesej Anda Jika Ada" id="message"></textarea>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 wow fadeInRight" data-wow-duration="2s" data-wow-delay="600ms">
+                                <div class="form-group">
+                                    <select name="status_permohonan" id="status_permohonan" class="form-control" required>
+                                        <option value="">Pilih Status Permohonan *</option>
+                                        <option value="gaji_tetap">Gaji Tetap</option>
+                                        <option value="gaji_tak_tetap">Gaji Tak Tetap (Overtime/Komisen/etc)</option>
+                                        <option value="graduate_baru_kerja">Graduate Scheme (Baru Bekerja)</option>
+                                        <option value="graduate_masih_belajar">Graduate Scheme (Masih Belajar)</option>
+                                    </select>
+                                </div>
+                                 <!-- For All -->
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupFileAddon01">Copy IC</span>
+                                  </div>
+                                  <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required>
+                                  </div>
+                                </div>
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupFileAddon01">Copy Lesen Memandu</span>
+                                  </div>
+                                  <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required>
+                                  </div>
+                                </div>
+
+                                <!-- Gaji Tetap -->
+                                <div id="gaji_tetap"><br>
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text"><b>Payslip 3 bulan</b></span>
+                                      </div>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="payslip1">Payslip 1</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip1">
+                                      </div>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="payslip2">Payslip 2</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip2">
+                                      </div>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="payslip3">Payslip 3</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip3">
+                                      </div>
+                                    </div>
+
+                                    <br>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                        <span class="input-group-text"><b>Bank statement 3 bulan / penyata kwsp</b></span>
+                                      </div>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="bank_statement">Bank statement</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="bank_statement">
+                                      </div>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="kwsp">Penyata kwsp</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="kwsp">
+                                      </div>
+                                    </div>
+                                 </div>
+
+                                <!-- Gaji Tak Tetap -->
+                                <div id="gaji_tak_tetap"><br>
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text"><b>Payslip 6 bulan</b></span>
+                                      </div>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="payslip1">Payslip 1</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip1">
+                                      </div>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="payslip2">Payslip 2</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip2">
+                                      </div>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="payslip3">Payslip 3</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip3">
+                                      </div>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="payslip4">Payslip 4</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip4">
+                                      </div>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="payslip5">Payslip 5</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip5">
+                                      </div>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="payslip6">Payslip 6</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip6">
+                                      </div>
+                                    </div>
+
+                                    <br>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                        <span class="input-group-text"><b>Bank statement 6 bulan / penyata kwsp</b></span>
+                                      </div>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="bank_statement">Bank statement</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="bank_statement">
+                                      </div>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="kwsp">Penyata kwsp</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="kwsp">
+                                      </div>
+                                    </div>
+                                 </div>
+
+                                 <!-- Graduate Baru Bekerja -->
+                                 <div id="graduate_baru_kerja">
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupFileAddon01">Surat Tawaran Kerja</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                      </div>
+                                    </div>
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupFileAddon01">Skrol Diploma/Ijazah</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                      </div>
+                                    </div>
+                                 </div>
+
+                                 <!-- Graduate Scheme -->
+                                 <div id="graduate_masih_belajar">
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupFileAddon01">Kad Pelajar</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                      </div>
+                                    </div><br>
+                                    <div class="form-group">
+                                        <select name="status_penjamin" id="status_penjamin" class="form-control" required>
+                                            <option value="status_penjamin">Status Penjamin *</option>
+                                            <option value="penjamin_gaji_tetap">Gaji Tetap</option>
+                                            <option value="penjamin_gaji_tak_tetap">Gaji Tak Tetap (Overtime/Komisen/etc)</option>
+                                        </select>
+                                    </div>
+                                     <!-- For All -->
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupFileAddon01">Copy IC Penjamin</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                      </div>
+                                    </div>
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupFileAddon01">Copy Lesen Memandu Penjamin</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                      </div>
+                                    </div>
+
+                                    <!-- Penjamin gaji tetap -->
+                                    <div id="penjamin_gaji_tetap"><br>
+                                        <div class="input-group">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text"><b>Payslip 3 bulan Penjamin</b></span>
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip1">Payslip 1</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip1">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip2">Payslip 2</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip2">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip3">Payslip 3</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip3">
+                                          </div>
+                                        </div>
+
+                                        <br>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text"><b>Bank statement 3 bulan / penyata kwsp Penjamin</b></span>
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="bank_statement">Bank statement</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="bank_statement">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="kwsp">Penyata kwsp</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="kwsp">
+                                          </div>
+                                        </div>
+                                     </div>
+
+                                     <!-- Penjamin Gaji Tak Tetap -->
+                                    <div id="penjamin_gaji_tak_tetap"><br>
+                                        <div class="input-group">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text"><b>Payslip 6 bulan Penjamin</b></span>
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip1">Payslip 1</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip1">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip2">Payslip 2</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip2">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip3">Payslip 3</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip3">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip4">Payslip 4</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip4">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip5">Payslip 5</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip5">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip6">Payslip 6</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="payslip6">
+                                          </div>
+                                        </div>
+
+                                        <br>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text"><b>Bank statement 6 bulan / penyata kwsp Penjamin</b></span>
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="bank_statement">Bank statement</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="bank_statement">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="kwsp">Penyata kwsp</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="kwsp">
+                                          </div>
+                                        </div>
+                                     </div>
+                                 </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="600ms">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-primary">Submit Form</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+
+<form name="contactform" method="post" action="send_form_email.php">
+<table width="450px">
+<tr>
+ <td valign="top">
+  <label for="first_name">First Name *</label>
+ </td>
+ <td valign="top">
+  <input  type="text" name="first_name" maxlength="50" size="30">
+ </td>
+</tr>
+<tr>
+ <td valign="top"">
+  <label for="last_name">Last Name *</label>
+ </td>
+ <td valign="top">
+  <input  type="text" name="last_name" maxlength="50" size="30">
+ </td>
+</tr>
+<tr>
+ <td valign="top">
+  <label for="email">Email Address *</label>
+ </td>
+ <td valign="top">
+  <input  type="text" name="email" maxlength="80" size="30">
+ </td>
+</tr>
+<tr>
+ <td valign="top">
+  <label for="telephone">Telephone Number</label>
+ </td>
+ <td valign="top">
+  <input  type="text" name="telephone" maxlength="30" size="30">
+ </td>
+</tr>
+<tr>
+ <td valign="top">
+  <label for="comments">Comments *</label>
+ </td>
+ <td valign="top">
+  <textarea  name="comments" maxlength="1000" cols="25" rows="6"></textarea>
+ </td>
+</tr>
+<tr>
+ <td colspan="2" style="text-align:center">
+  <input type="submit" value="Submit">   <a href="http://www.freecontactform.com/email_form.php">Email Form</a>
+ </td>
+</tr>
+</table>
+</form>
+
+    
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#status_permohonan").change(function()
+            {
+                if($(this).val() == "gaji_tak_tetap") {
+                    $("#gaji_tak_tetap").show();
+                    $("#gaji_tetap").hide();
+                    $("#graduate_baru_kerja").hide();
+                    $("#graduate_masih_belajar").hide();
+                } else if ($(this).val() == "graduate_baru_kerja") {
+                    $("#graduate_baru_kerja").show();
+                    $("#gaji_tetap").hide();
+                    $("#gaji_tak_tetap").hide();
+                    $("#graduate_masih_belajar").hide();
+                } else if ($(this).val() == "graduate_masih_belajar") {
+                    $("#graduate_masih_belajar").show();
+                    $("#graduate_baru_kerja").hide();
+                    $("#gaji_tak_tetap").hide();
+                    $("#gaji_tetap").hide();
+                }
+                else {
+                    $("#gaji_tetap").show();
+                    $("#gaji_tak_tetap").hide();
+                    $("#graduate_baru_kerja").hide();
+                    $("#graduate_masih_belajar").hide();
+                }
+            });
+            $("#gaji_tak_tetap").hide();
+            $("#graduate_baru_kerja").hide();
+            $("#graduate_masih_belajar").hide();
+        });
+     </script>
+
+     <script type="text/javascript">
+        $(document).ready(function() {
+            $("#status_penjamin").change(function()
+            {
+                if($(this).val() == "penjamin_gaji_tak_tetap") {
+                    $("#penjamin_gaji_tak_tetap").show();
+                    $("#penjamin_gaji_tetap").hide();
+                }
+                else {
+                    $("#penjamin_gaji_tetap").show();
+                    $("#penjamin_gaji_tak_tetap").hide();
+                }
+            });
+            $("#penjamin_gaji_tak_tetap").hide();
+        });
+     </script>
+
+     <script type="text/javascript">
+        $(document).ready(function() {
+            $("#car_model").change(function()
+            {
+                if($(this).val() == "car_model_alza") {
+                    $("#color_alza").show();
+                    $("#color_myvi").hide();
+                    $("#color_bezza").hide();
+                    $("#color_axia").hide();
+                } else if ($(this).val() == "car_model_myvi") {
+                    $("#color_myvi").show();
+                    $("#color_alza").hide();
+                    $("#color_bezza").hide();
+                    $("#color_axia").hide();
+                } else if ($(this).val() == "car_model_bezza") {
+                    $("#color_bezza").show();
+                    $("#color_myvi").hide();
+                    $("#color_alza").hide();
+                    $("#color_axia").hide();
+                } else if ($(this).val() == "car_model_axia") {
+                    $("#color_axia").show();
+                    $("#color_myvi").hide();
+                    $("#color_alza").hide();
+                    $("#color_bezza").hide();
+                } 
+                else {
+                    $("#color_myvi").hide();
+                    $("#color_bezza").hide();
+                    $("#color_axia").hide();
+                    $("#color_alza").show();
+                }
+            });
+            $("#color_myvi").hide();
+            $("#color_bezza").hide();
+            $("#color_axia").hide();
+            $("#color_alza").show();
+        });
+     </script>
+     
         
         <!-- Start Footer Section -->
         <div w3-include-html="footer.html"></div> 
