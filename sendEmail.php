@@ -1,12 +1,12 @@
 <?php
-require 'PHPMailer/PHPMailerAutoload.php';
+require 'PHPMailerAutoload.php';
 try {
 if(isset($_POST['email_send'])) {
 $mail = new PHPMailer;
 $mail->FromName = $_POST['u_name'];
 $to_email = $_POST['u_email'];
 $mail->AddAddress($to_email);
-$mail->From = "admin@phpzag.com";
+$mail->From = "mohdnorshahrimbisni@gmail.com";
 $mail->Subject = "Test Email Send using PHP";
 $body = "<table>
 <tr>
@@ -28,7 +28,7 @@ $body = "<table>
 $body = preg_replace('/\\\\/','', $body);
 $mail->MsgHTML($body);
 $mail->IsSendmail();
-$mail->AddReplyTo("admin@phpzag.com");
+$mail->AddReplyTo("shahrimbisni@gmail.com");
 $mail->AltBody = "To view the message, please use an HTML compatible email viewer!";
 $mail->WordWrap = 80;
 $mail->AddAttachment($_FILES['attach']['tmp_name'], $_FILES['attach']['name']);
