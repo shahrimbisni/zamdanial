@@ -27,10 +27,9 @@ if(!empty($_POST['name']) || !empty($_POST['email']) || $_FILES['file'])
 
 		//sent email notification
 		if(isset($_POST['email'])) {
- 
-		    // EDIT THE 2 LINES BELOW AS REQUIRED
+
 		    $email_to = "shahrimbisni@gmail.com";
-		    $email_subject = "Your email subject line";
+		    $email_subject = "New Application Form";
 		 
 		    function died($error) {
 		        // your error code can go here
@@ -42,21 +41,21 @@ if(!empty($_POST['name']) || !empty($_POST['email']) || $_FILES['file'])
 		    }		  
 		 
 		    $email_message = "Form details below.\n\n";
-		 
 		     
 		    function clean_string($string) {
 		      $bad = array("content-type","bcc:","to:","cc:","href");
 		      return str_replace($bad,"",$string);
 		    }
+
+		    $email_message .= "Name: ".clean_string($name)."\n";
+		    $email_message .= "Email: ".clean_string($email)."\n";
 		 
-		     
-		 
-		// create email headers
-		$headers = 'From: '.$name."\r\n".
-		'Reply-To: '.$email."\r\n" .
-		'X-Mailer: PHP/' . phpversion();
-		@mail($email_to, $email_subject, $email_message, $headers);
-	}
+			// create email headers
+			$headers = 'From: '.$email."\r\n".
+			'Reply-To: '.$email."\r\n" .
+			'X-Mailer: PHP/' . phpversion();
+			@mail($email_to, $email_subject, $email_message, $headers);
+		}
 
 		//include database configuration file
 		include_once 'database/db.php';
