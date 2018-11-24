@@ -32,6 +32,17 @@ if(!empty($_POST['name']) || !empty($_POST['email']) || $_FILES['file'])
 		$insert = $db->query("INSERT uploading (name,email,file_name) VALUES ('".$name."','".$email."','".$path."')");
 
 		//echo $insert?'ok':'err';
+
+		//sent email notification
+		$email_to = "shahrimbisni@gmail.com";
+    	$email_subject = "New Application From : ". $name;
+    	$email_message = "Form details below.\n\n";
+
+    	// create email headers
+		$headers = 'From: '.$email."\r\n".
+		'Reply-To: '.$email."\r\n" .
+		'X-Mailer: PHP/' . phpversion();
+		@mail($email_to, $email_subject, $email_message, $headers);
 		}
 	} 
 	else 
