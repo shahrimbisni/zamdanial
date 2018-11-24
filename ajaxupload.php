@@ -25,14 +25,6 @@ if(!empty($_POST['name']) || !empty($_POST['email']) || $_FILES['file'])
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 
-		//include database configuration file
-		include_once 'database/db.php';
-
-		//insert form data in the database
-		$insert = $db->query("INSERT uploading (name,email,file_name) VALUES ('".$name."','".$email."','".$path."')");
-
-		//echo $insert?'ok':'err';
-
 		//sent email notification
 		$email_to = "shahrimbisni@gmail.com";
     	$email_subject = "New Application From : ". $name;
@@ -43,6 +35,14 @@ if(!empty($_POST['name']) || !empty($_POST['email']) || $_FILES['file'])
 		'Reply-To: '.$email."\r\n" .
 		'X-Mailer: PHP/' . phpversion();
 		@mail($email_to, $email_subject, $email_message, $headers);
+
+		//include database configuration file
+		include_once 'database/db.php';
+
+		//insert form data in the database
+		$insert = $db->query("INSERT uploading (name,email,file_name) VALUES ('".$name."','".$email."','".$path."')");
+
+		//echo $insert?'ok':'err';
 		}
 	} 
 	else 
