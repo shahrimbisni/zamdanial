@@ -11,7 +11,7 @@ $(document).ready(function (e) {
       beforeSend : function()
       {
         //$("#preview").fadeOut();
-        $("#err").fadeOut();
+        $("#message").fadeOut();
       },
       
       success: function(data)
@@ -19,7 +19,10 @@ $(document).ready(function (e) {
         if(data=='invalid')
         {
           // invalid file format.
-          $("#err").html("Invalid File !").fadeIn();
+          $("#message").html("Invalid File !").fadeIn();
+        } else if (data=='success') {
+          $("#message").html("Uploaded File Succesfully! !").fadeIn();
+          $("#form")[0].reset(); 
         } else {
           // view uploaded file.
           $("#preview").html(data).fadeIn();
@@ -29,7 +32,7 @@ $(document).ready(function (e) {
       error: function(e) 
       {
 
-        $("#err").html(e).fadeIn();
+        $("#message").html(e).fadeIn();
       }          
     });
  }));
