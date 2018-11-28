@@ -2,7 +2,7 @@ $(document).ready(function (e) {
   $("#form").on('submit',(function(e) {
     e.preventDefault();
     $.ajax({
-      url: "ajaxupload.php",
+      url: "database/ajaxupload.php",
       type: "POST",
       data:  new FormData(this),
       contentType: false,

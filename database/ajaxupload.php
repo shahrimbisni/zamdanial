@@ -2,8 +2,8 @@
 
 $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp' , 'pdf' , 'doc' , 'ppt'); // valid extensions
 
-$path1 = 'database/copy_ic/'; // upload directory
-$path2 = 'database/copy_lesen/'; // upload directory
+$path1 = 'copy_ic'; // upload directory
+$path2 = 'copy_lesen'; // upload directory
 
 if(!empty($_POST['name']) || !empty($_POST['email']) || !empty($_POST['phone']) || !empty($_POST['address']) || !empty($_POST['car_model']) || !empty($_POST['mesej']) || $_FILES['copy_ic'] || $_FILES['copy_lesen'] || !empty($_POST['status_permohonan']))
 {
@@ -79,7 +79,7 @@ if(!empty($_POST['name']) || !empty($_POST['email']) || !empty($_POST['phone']) 
 		}
 
 		//include database configuration file
-		include_once 'database/db.php';
+		include_once 'db.php';
 
 		//insert form data in the database
 		$insert = $db->query("INSERT uploading (name,email,phone,address,car_model,mesej,copy_ic,copy_lesen,status_permohonan) VALUES ('".$name."','".$email."','".$phone."','".$address."','".$car_model."','".$mesej."','".$copy_ic."','".$copy_lesen."','".$status_permohonan."')");
