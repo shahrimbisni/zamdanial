@@ -2,8 +2,8 @@
 
 $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp' , 'pdf' , 'doc' , 'ppt'); // valid extensions
 
-$path1 = 'copy_ic'; // upload directory
-$path2 = 'copy_lesen'; // upload directory
+$path1 = 'copy_ic/'; // upload directory
+$path2 = 'copy_lesen/'; // upload directory
 
 if(!empty($_POST['name']) || !empty($_POST['email']) || !empty($_POST['phone']) || !empty($_POST['address']) || !empty($_POST['car_model']) || !empty($_POST['mesej']) || $_FILES['copy_ic'] || $_FILES['copy_lesen'] || !empty($_POST['status_permohonan']))
 {
@@ -37,7 +37,13 @@ if(!empty($_POST['name']) || !empty($_POST['email']) || !empty($_POST['phone']) 
 		$email = $_POST['email'];
 		$phone = $_POST['phone'];
 		$address = $_POST['address'];
-		$mesej = $_POST['mesej'];
+
+		if(!empty($_POST['mesej'])) {
+			$mesej = $_POST['mesej'];
+		} else {
+			$mesej = "-";
+		}
+		
 		$car_model = $_POST['car_model'];
 		$status_permohonan = $_POST['status_permohonan'];
 
