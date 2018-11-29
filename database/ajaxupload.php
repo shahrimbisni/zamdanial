@@ -5,7 +5,7 @@ $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp' , 'pdf' , 'doc' , '
 $path1 = 'copy_ic/'; // upload directory
 $path2 = 'copy_lesen/'; // upload directory
 
-if(!empty($_POST['name']) || !empty($_POST['email']) || !empty($_POST['phone']) || !empty($_POST['address']) || !empty($_POST['car_model']) || !empty($_POST['mesej']) || $_FILES['copy_ic'] || $_FILES['copy_lesen'] || !empty($_POST['status_permohonan']))
+if(!empty($_POST['name']) || !empty($_POST['email']) || !empty($_POST['phone']) || !empty($_POST['address']) || !empty($_POST['car_model']) || !empty($_POST['car_color']) || $_FILES['copy_ic'] || $_FILES['copy_lesen'] || !empty($_POST['status_permohonan']))
 {
 	$copy_ic = $_FILES['copy_ic']['name'];
 	$tmp_copy_ic = $_FILES['copy_ic']['tmp_name'];
@@ -45,6 +45,7 @@ if(!empty($_POST['name']) || !empty($_POST['email']) || !empty($_POST['phone']) 
 		}
 		
 		$car_model = $_POST['car_model'];
+		$car_color = $_POST['car_color'];
 		$status_permohonan = $_POST['status_permohonan'];
 
 		//sent email notification
@@ -75,6 +76,7 @@ if(!empty($_POST['name']) || !empty($_POST['email']) || !empty($_POST['phone']) 
 		    $email_message .= "Address: ".clean_string($address)."\n";
 		    $email_message .= "Message: ".clean_string($mesej)."\n";
 		    $email_message .= "Car Model: ".clean_string($car_model)."\n";
+		    $email_message .= "Car Color: ".clean_string($car_color)."\n";
 		    $email_message .= "Application Status: ".clean_string($status_permohonan)."\n";
 		 
 			// create email headers
@@ -88,7 +90,7 @@ if(!empty($_POST['name']) || !empty($_POST['email']) || !empty($_POST['phone']) 
 		include_once 'db.php';
 
 		//insert form data in the database
-		$insert = $db->query("INSERT uploading (name,email,phone,address,car_model,mesej,copy_ic,copy_lesen,status_permohonan) VALUES ('".$name."','".$email."','".$phone."','".$address."','".$car_model."','".$mesej."','".$copy_ic."','".$copy_lesen."','".$status_permohonan."')");
+		$insert = $db->query("INSERT uploading (name,email,phone,address,car_model,car_color,mesej,copy_ic,copy_lesen,status_permohonan) VALUES ('".$name."','".$email."','".$phone."','".$address."','".$car_model."','".$car_color."','".$mesej."','".$copy_ic."','".$copy_lesen."','".$status_permohonan."')");
 
 		//echo $insert?'ok':'err';
 		echo 'success';

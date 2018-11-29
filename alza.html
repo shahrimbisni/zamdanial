@@ -423,14 +423,9 @@
 
                                 <div class="col-md-6 wow fadeInRight" data-wow-duration="2s" data-wow-delay="600ms">
                                     <div class="form-group">
-                                        <select name="status_permohonan" id="status_permohonan" class="form-control" required>
-                                            <option value="">Pilih Status Permohonan *</option>
-                                            <option value="gaji_tetap">Gaji Tetap</option>
-                                            <option value="gaji_tak_tetap">Gaji Tak Tetap (Overtime/Komisen/etc)</option>
-                                            <option value="graduate_baru_kerja">Graduate Scheme (Baru Bekerja)</option>
-                                            <option value="graduate_masih_belajar">Graduate Scheme (Masih Belajar)</option>
-                                        </select>
+                                        <select class="form-control"  id='status_permohonan' name='status_permohonan' onClick="getPermohonan()" required></select>
                                     </div>
+
                                      <!-- For All -->
                                     <div class="input-group">
                                       <div class="input-group-prepend">
@@ -758,7 +753,6 @@
          
         if (list1SelectedValue=='Alza')
         {
-             
             list2.options.length=0;
             list2.options[0] = new Option('Pilihan Color Kerete Alza *', '');
             list2.options[1] = new Option('Granite Grey / Metallic', 'Granite Grey / Metallic');
@@ -766,7 +760,6 @@
             list2.options[3] = new Option('Mystical Purple / Metallic', 'Mystical Purple / Metallic');
             list2.options[4] = new Option('Glittering Silver / Metallic', 'Glittering Silver / Metallic');
             list2.options[5] = new Option('Ivory White / Metallic', 'Ivory White / Metallic');
-             
         }
         else if (list1SelectedValue=='Myvi')
         {
@@ -802,40 +795,57 @@
             list2.options[5] = new Option('Sunflower Yellow / Solid', 'Sunflower Yellow / Solid'); 
         }
     }
-    </script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#status_permohonan").change(function()
-            {
-                if($(this).val() == "gaji_tak_tetap") {
-                    $("#gaji_tak_tetap").show();
-                    $("#gaji_tetap").hide();
-                    $("#graduate_baru_kerja").hide();
-                    $("#graduate_masih_belajar").hide();
-                } else if ($(this).val() == "graduate_baru_kerja") {
-                    $("#graduate_baru_kerja").show();
-                    $("#gaji_tetap").hide();
-                    $("#gaji_tak_tetap").hide();
-                    $("#graduate_masih_belajar").hide();
-                } else if ($(this).val() == "graduate_masih_belajar") {
-                    $("#graduate_masih_belajar").show();
-                    $("#graduate_baru_kerja").hide();
-                    $("#gaji_tak_tetap").hide();
-                    $("#gaji_tetap").hide();
-                }
-                else {
-                    $("#gaji_tetap").show();
-                    $("#gaji_tak_tetap").hide();
-                    $("#graduate_baru_kerja").hide();
-                    $("#graduate_masih_belajar").hide();
-                }
-            });
+    $(document).ready(function () {
+        var mohon = document.getElementById('status_permohonan');
+        mohon.options[0] = new Option('Pilih Status Permohonan *', '');
+        mohon.options[1] = new Option('Gaji Tetap', 'gaji_tetap');
+        mohon.options[2] = new Option('Gaji Tak Tetap (Overtime/Komisen/etc)', 'gaji_tak_tetap');
+        mohon.options[3] = new Option('Graduate Scheme (Baru Bekerja)', 'graduate_baru_kerja');
+        mohon.options[4] = new Option('Graduate Scheme (Masih Belajar)', 'graduate_masih_belajar');
+
+        $("#gaji_tak_tetap").hide();
+        $("#graduate_baru_kerja").hide();
+        $("#graduate_masih_belajar").hide();
+    });
+
+    function getPermohonan() {
+        var mohon = document.getElementById('status_permohonan');
+        var list1SelectedValue = mohon.options[mohon.selectedIndex].value;
+         
+        if (list1SelectedValue=='gaji_tetap')
+        {
+            $("#gaji_tetap").show();
             $("#gaji_tak_tetap").hide();
             $("#graduate_baru_kerja").hide();
             $("#graduate_masih_belajar").hide();
-        });
-     </script>
+        } else if (list1SelectedValue=='gaji_tak_tetap') 
+        {
+            $("#gaji_tetap").hide();
+            $("#gaji_tak_tetap").show();
+            $("#graduate_baru_kerja").hide();
+            $("#graduate_masih_belajar").hide();
+        } else if (list1SelectedValue=='graduate_baru_kerja') 
+        {
+            $("#gaji_tetap").hide();
+            $("#gaji_tak_tetap").hide();
+            $("#graduate_baru_kerja").show();
+            $("#graduate_masih_belajar").hide();
+        } else if (list1SelectedValue=='graduate_masih_belajar') 
+        {
+            $("#gaji_tetap").hide();
+            $("#gaji_tak_tetap").hide();
+            $("#graduate_baru_kerja").hide();
+            $("#graduate_masih_belajar").show();
+        } else {
+            $("#gaji_tetap").show();
+            $("#gaji_tak_tetap").hide();
+            $("#graduate_baru_kerja").hide();
+            $("#graduate_masih_belajar").hide();
+        }
+    }
+
+    </script>
 
      <script type="text/javascript">
         $(document).ready(function() {
