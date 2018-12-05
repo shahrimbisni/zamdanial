@@ -20,15 +20,21 @@ $(document).ready(function (e) {
         {
           // invalid file format.
           $("#message").html("Invalid File !").fadeIn();
-        } else if (data=='payslip1_3bulan_required') {
+        } else if (data=='payslip1_required') {
           $("#message").html("Payslip 1 Diperlukan !").fadeIn();
-        } else if (data=='payslip2_3bulan_required') {
+        } else if (data=='payslip2_required') {
           $("#message").html("Payslip 2 Diperlukan !").fadeIn();
-        } else if (data=='payslip3_3bulan_required') {
+        } else if (data=='payslip3_required') {
           $("#message").html("Payslip 3 Diperlukan !").fadeIn();
-        } else if (data=='bank_statement_3bulan_required') {
+        } else if (data=='payslip4_required') {
+          $("#message").html("Payslip 4 Diperlukan !").fadeIn();
+        } else if (data=='payslip5_required') {
+          $("#message").html("Payslip 5 Diperlukan !").fadeIn();
+        } else if (data=='payslip6_required') {
+          $("#message").html("Payslip 6 Diperlukan !").fadeIn();
+        } else if (data=='bank_statement') {
           $("#message").html("Bank Statement Diperlukan !").fadeIn();
-        } else if (data=='penyata_kwsp_3bulan_required') {
+        } else if (data=='penyata_kwsp') {
           $("#message").html("Penyata KWSP Diperlukan !").fadeIn();
         } else if (data=='success') {
           $("#message").html("Pendaftaran Anda Berjaya. Kami Akan Menyemak Dokumen Anda. Terima Kasih !").fadeIn();
