@@ -147,7 +147,7 @@ switch ($status_permohonan) {
 				include_once 'db.php';
 
 				//insert form data in the database
-				$insert = $db->query("INSERT uploading (name,email,phone,address,car_model,car_color,mesej,copy_ic,copy_lesen,status_permohonan,payslip1,payslip2,payslip3,payslip4,payslip5,payslip6,bank_statement,penyata_kwsp) VALUES ('".$name."','".$email."','".$phone."','".$address."','".$car_model."','".$car_color."','".$mesej."','".$copy_ic."','".$copy_lesen."','".$status_permohonan."','".$payslip1_3bulan."','".$payslip2_3bulan."','".$payslip3_3bulan."','-','-','-','".$bank_statement_3bulan."','".$penyata_kwsp_3bulan."')");
+				$insert = $db->query("INSERT uploading (name,email,phone,address,car_model,car_color,mesej,copy_ic,copy_lesen,status_permohonan,payslip1,payslip2,payslip3,payslip4,payslip5,payslip6,bank_statement,penyata_kwsp,surat_tawaran_kerja,skrol,kad_pelajar,status_penjamin,copy_ic_penjamin,copy_lesen_penjamin,payslip1_penjamin,payslip2_penjamin,payslip3_penjamin,payslip4_penjamin,payslip5_penjamin,payslip6_penjamin,bank_statement_penjamin,penyata_kwsp_penjamin) VALUES ('".$name."','".$email."','".$phone."','".$address."','".$car_model."','".$car_color."','".$mesej."','".$copy_ic."','".$copy_lesen."','".$status_permohonan."','".$payslip1_3bulan."','".$payslip2_3bulan."','".$payslip3_3bulan."','-','-','-','".$bank_statement_3bulan."','".$penyata_kwsp_3bulan."','-','-','-','-','-','-','-','-','-','-','-','-','-','-')");
 
 				//echo $insert?'ok':'err';
 				echo 'success';
