@@ -12,6 +12,8 @@ $path7 = 'penyata_kwsp/'; // upload directory
 $path8 = 'payslip4/'; // upload directory
 $path9 = 'payslip5/'; // upload directory
 $path10 = 'payslip6/'; // upload directory
+$path11 = 'surat_tawaran_kerja/'; // upload directory
+$path12 = 'skrol/'; // upload directory
 
 $status_permohonan = $_POST['status_permohonan'];
 
@@ -316,7 +318,7 @@ switch ($status_permohonan) {
 				include_once 'db.php';
 
 				//insert form data in the database
-				$insert = $db->query("INSERT uploading (name,email,phone,address,car_model,car_color,mesej,copy_ic,copy_lesen,status_permohonan,payslip1,payslip2,payslip3,payslip4,payslip5,payslip6,bank_statement,penyata_kwsp) VALUES ('".$name."','".$email."','".$phone."','".$address."','".$car_model."','".$car_color."','".$mesej."','".$copy_ic."','".$copy_lesen."','".$status_permohonan."','".$payslip1_6bulan."','".$payslip2_6bulan."','".$payslip3_6bulan."','".$payslip4_6bulan."','".$payslip5_6bulan."','".$payslip6_6bulan."','".$bank_statement_6bulan."','".$penyata_kwsp_6bulan."')");
+				$insert = $db->query("INSERT uploading (name,email,phone,address,car_model,car_color,mesej,copy_ic,copy_lesen,status_permohonan,payslip1,payslip2,payslip3,payslip4,payslip5,payslip6,bank_statement,penyata_kwsp,surat_tawaran_kerja,skrol,kad_pelajar,status_penjamin,copy_ic_penjamin,copy_lesen_penjamin,payslip1_penjamin,payslip2_penjamin,payslip3_penjamin,payslip4_penjamin,payslip5_penjamin,payslip6_penjamin,bank_statement_penjamin,penyata_kwsp_penjamin) VALUES ('".$name."','".$email."','".$phone."','".$address."','".$car_model."','".$car_color."','".$mesej."','".$copy_ic."','".$copy_lesen."','".$status_permohonan."','".$payslip1_6bulan."','".$payslip2_6bulan."','".$payslip3_6bulan."','".$payslip4_6bulan."','".$payslip5_6bulan."','".$payslip6_6bulan."','".$bank_statement_6bulan."','".$penyata_kwsp_6bulan."','-','-','-','-','-','-','-','-','-','-','-','-','-','-')");
 
 				//echo $insert?'ok':'err';
 				echo 'success';
@@ -328,8 +330,120 @@ switch ($status_permohonan) {
 			}
 		}
         break;
-    case "green":
-        echo "Your favorite color is green!";
+    case "graduate_baru_kerja":
+        if ($_FILES['surat_tawaran_kerja']['error'] > 0) { 
+	    	echo 'surat_tawaran_kerja_required';
+		} else if ($_FILES['skrol']['error'] > 0) {
+			echo 'skrol_required';
+		} else {
+			$copy_ic = $_FILES['copy_ic']['name'];
+			$tmp_copy_ic = $_FILES['copy_ic']['tmp_name'];
+
+			$copy_lesen = $_FILES['copy_lesen']['name'];
+			$tmp_copy_lesen = $_FILES['copy_lesen']['tmp_name'];
+
+			$surat_tawaran_kerja = $_FILES['surat_tawaran_kerja']['name'];
+			$tmp_surat_tawaran_kerja = $_FILES['surat_tawaran_kerja']['tmp_name'];
+
+			$skrol = $_FILES['skrol']['name'];
+			$tmp_skrol = $_FILES['skrol']['tmp_name'];
+
+			// get uploaded file's extension
+			$ext_copy_ic = strtolower(pathinfo($copy_ic, PATHINFO_EXTENSION));
+			$ext_copy_lesen = strtolower(pathinfo($copy_lesen, PATHINFO_EXTENSION));
+			$ext_surat_tawaran_kerja = strtolower(pathinfo($surat_tawaran_kerja, PATHINFO_EXTENSION));
+			$ext_skrol = strtolower(pathinfo($skrol, PATHINFO_EXTENSION));
+
+			// can upload same image using rand function
+			$copy_ic = rand(1000,1000000).$copy_ic;
+			$copy_lesen = rand(1000,1000000).$copy_lesen;
+			$surat_tawaran_kerja = rand(1000,1000000).$surat_tawaran_kerja;
+			$skrol = rand(1000,1000000).$skrol;
+
+			// check's valid format
+			if((in_array($ext_copy_ic, $valid_extensions)) && (in_array($ext_copy_lesen, $valid_extensions)) && (in_array($ext_surat_tawaran_kerja, $valid_extensions)) && (in_array($ext_skrol, $valid_extensions)))
+			{	 
+				$path1 = $path1.strtolower($copy_ic); 
+				$path2 = $path2.strtolower($copy_lesen);
+				$path11 = $path11.strtolower($surat_tawaran_kerja);
+				$path12 = $path12.strtolower($skrol);
+
+				$copy_ic = strtolower($copy_ic); 
+				$copy_lesen = strtolower($copy_lesen); 
+				$surat_tawaran_kerja = strtolower($surat_tawaran_kerja); 
+				$skrol = strtolower($skrol); 
+
+				if((move_uploaded_file($tmp_copy_ic,$path1)) && (move_uploaded_file($tmp_copy_lesen,$path2)) && (move_uploaded_file($tmp_surat_tawaran_kerja,$path11)) && (move_uploaded_file($tmp_skrol,$path12)))
+				{
+				// echo "Uploaded file Succesfully!";
+				$name = $_POST['name'];
+				$email = $_POST['email'];
+				$phone = $_POST['phone'];
+				$address = $_POST['address'];
+
+				if(!empty($_POST['mesej'])) {
+					$mesej = $_POST['mesej'];
+				} else {
+					$mesej = "-";
+				}
+			
+				$car_model = $_POST['car_model'];
+				$car_color = $_POST['car_color'];
+				$status_permohonan = $_POST['status_permohonan'];
+
+				//sent email notification
+				if(isset($_POST['email'])) {
+
+				    $email_to = "shahrimbisni@gmail.com";
+				    $email_subject = "New Application Form";
+			 
+				    function died($error) {
+				        // your error code can go here
+				        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
+				        echo "These errors appear below.<br /><br />";
+				        echo $error."<br /><br />";
+				        echo "Please go back and fix these errors.<br /><br />";
+				        die();
+				    }		  
+			 
+				    $email_message = "Form details below.\n\n";
+			     
+				    function clean_string($string) {
+				      $bad = array("content-type","bcc:","to:","cc:","href");
+				      return str_replace($bad,"",$string);
+				    }
+
+				    $email_message .= "Name: ".clean_string($name)."\n";
+				    $email_message .= "Email: ".clean_string($email)."\n";
+				    $email_message .= "Phone: ".clean_string($phone)."\n";
+				    $email_message .= "Address: ".clean_string($address)."\n";
+				    $email_message .= "Message: ".clean_string($mesej)."\n";
+				    $email_message .= "Car Model: ".clean_string($car_model)."\n";
+				    $email_message .= "Car Color: ".clean_string($car_color)."\n";
+				    $email_message .= "Application Status: ".clean_string($status_permohonan)."\n";
+			 
+					// create email headers
+					$headers = 'From: '.$email."\r\n".
+					'Reply-To: '.$email."\r\n" .
+					'X-Mailer: PHP/' . phpversion();
+					@mail($email_to, $email_subject, $email_message, $headers);
+				}
+
+				//include database configuration file
+				include_once 'db.php';
+
+				//insert form data in the database
+				$insert = $db->query("INSERT uploading (name,email,phone,address,car_model,car_color,mesej,copy_ic,copy_lesen,status_permohonan,payslip1,payslip2,payslip3,payslip4,payslip5,payslip6,bank_statement,penyata_kwsp,surat_tawaran_kerja,skrol,kad_pelajar,status_penjamin,copy_ic_penjamin,copy_lesen_penjamin,payslip1_penjamin,payslip2_penjamin,payslip3_penjamin,payslip4_penjamin,payslip5_penjamin,payslip6_penjamin,bank_statement_penjamin,penyata_kwsp_penjamin) VALUES ('".$name."','".$email."','".$phone."','".$address."','".$car_model."','".$car_color."','".$mesej."','".$copy_ic."','".$copy_lesen."','".$status_permohonan."','-','-','-','-','-','-','-','-','".$surat_tawaran_kerja."','".$skrol."','-','-','-','-','-','-','-','-','-','-','-','-')");
+
+				//echo $insert?'ok':'err';
+				echo 'success';
+				}
+			} 
+			else 
+			{
+				echo 'invalid';
+			}
+		}
         break;
     default:
         echo "Your favorite color is neither red, blue, nor green!";

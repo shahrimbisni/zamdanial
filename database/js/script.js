@@ -36,6 +36,10 @@ $(document).ready(function (e) {
           $("#message").html("Bank Statement Diperlukan !").fadeIn();
         } else if (data=='penyata_kwsp') {
           $("#message").html("Penyata KWSP Diperlukan !").fadeIn();
+        } else if (data=='surat_tawaran_kerja_required') {
+          $("#message").html("Surat Tawaran Kerja Diperlukan !").fadeIn();
+        } else if (data=='skrol_required') {
+          $("#message").html("Skrol Sijil/Diploma/Ijazah Diperlukan !").fadeIn();
         } else if (data=='success') {
           $("#message").html("Pendaftaran Anda Berjaya. Kami Akan Menyemak Dokumen Anda. Terima Kasih !").fadeIn();
           $("#form")[0].reset(); 
