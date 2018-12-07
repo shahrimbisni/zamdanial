@@ -33,6 +33,34 @@
         };
     </script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
+
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+
+          // Store hash
+          var hash = this.hash;
+
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function(){
+       
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+    });
+    </script>
+
     <head>
 
         <!-- Basic -->
@@ -402,8 +430,487 @@
                 </div><!-- /.col-md-3 -->
             </div>
         </div>
-    </section>
+    </section><br>
     <!-- End Team Member Section -->
+
+    <!-- Start Contact Us Section -->
+    <div align="center"><h2>Borang Pemohonan</h2></div><br>
+    <section id="booking" class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <script type="text/javascript" src="database/js/script.js"></script>
+                        <form id="form" action="database/ajaxupload.php" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-6 wow fadeInLeft" data-wow-duration="2s" data-wow-delay="600ms">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Nama Penuh Anda *" name="name" id="name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Email Anda *" name="email" id="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="tel" class="form-control" placeholder="Nombor Telefon Anda *" name="phone" id="phone" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="form-control" placeholder="Alamat Surat Menyurat Anda *" name="address" id="address" required></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <select class="form-control"  id='car_model' name='car_model' onClick="getCarModel()" required></select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <select class="form-control"  id='car_color' name='car_color' required></select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <textarea class="form-control" placeholder="Mesej Anda Jika Ada" name="mesej" id="mesej"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 wow fadeInRight" data-wow-duration="2s" data-wow-delay="600ms">
+                                    <div class="form-group">
+                                        <select class="form-control"  id='status_permohonan' name='status_permohonan' onClick="getPermohonan()" required></select>
+                                    </div>
+
+                                     <!-- For All -->
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="copy_ic">Copy IC</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="copy_ic" id="copy_ic" aria-describedby="copy_ic" required>
+                                      </div>
+                                    </div>
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="copy_lesen">Copy Lesen Memandu</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="copy_lesen" id="copy_lesen" aria-describedby="copy_lesen" required>
+                                      </div>
+                                    </div>
+
+                                    <!-- Gaji Tetap -->
+                                    <div id="gaji_tetap"><br>
+                                        <div class="input-group">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text"><b>Payslip 3 bulan</b></span>
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip1_3bulan">Payslip 1</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="payslip1_3bulan" id="payslip1_3bulan" aria-describedby="payslip1_3bulan">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip2_3bulan">Payslip 2</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="payslip2_3bulan" id="payslip2_3bulan" aria-describedby="payslip2_3bulan">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip3_3bulan">Payslip 3</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="payslip3_3bulan" id="payslip3_3bulan" aria-describedby="payslip3_3bulan">
+                                          </div>
+                                        </div>
+
+                                        <br>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text"><b>Bank statement 3 bulan / penyata kwsp</b></span>
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="bank_statement_3bulan">Bank statement</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="bank_statement_3bulan" id="bank_statement_3bulan" aria-describedby="bank_statement_3bulan">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="penyata_kwsp_3bulan">Penyata kwsp</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="penyata_kwsp_3bulan" id="penyata_kwsp_3bulan" aria-describedby="penyata_kwsp_3bulan">
+                                          </div>
+                                        </div>
+                                     </div>
+
+                                    <!-- Gaji Tak Tetap -->
+                                    <div id="gaji_tak_tetap"><br>
+                                        <div class="input-group">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text"><b>Payslip 6 bulan</b></span>
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip1_6bulan">Payslip 1</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="payslip1_6bulan" id="payslip1_6bulan" aria-describedby="payslip1_6bulan">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip2_6bulan">Payslip 2</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="payslip2_6bulan" id="payslip2_6bulan" aria-describedby="payslip2_6bulan">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip3_6bulan">Payslip 3</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="payslip3_6bulan" id="payslip3_6bulan" aria-describedby="payslip3_6bulan">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip4_6bulan">Payslip 4</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="payslip4_6bulan" id="payslip4_6bulan" aria-describedby="payslip4_6bulan">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip5_6bulan">Payslip 5</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="payslip5_6bulan" id="payslip5_6bulan" aria-describedby="payslip5_6bulan">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="payslip6_6bulan">Payslip 6</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="payslip6_6bulan" id="payslip6_6bulan" aria-describedby="payslip6_6bulan">
+                                          </div>
+                                        </div>
+
+                                        <br>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text"><b>Bank statement 6 bulan / penyata kwsp</b></span>
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="bank_statement_6bulan">Bank statement</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="bank_statement_6bulan" id="bank_statement_6bulan" aria-describedby="bank_statement_6bulan">
+                                          </div>
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="penyata_kwsp_6bulan">Penyata kwsp</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="penyata_kwsp_6bulan" id="penyata_kwsp_6bulan" aria-describedby="penyata_kwsp_6bulan">
+                                          </div>
+                                        </div>
+                                     </div>
+
+                                     <!-- Graduate Baru Bekerja -->
+                                     <div id="graduate_baru_kerja">
+                                        <div class="input-group">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="surat_tawaran_kerja">Surat Tawaran Kerja</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="surat_tawaran_kerja" id="surat_tawaran_kerja" aria-describedby="surat_tawaran_kerja">
+                                          </div>
+                                        </div>
+                                        <div class="input-group">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="skrol">Skrol Sijil/Diploma/Ijazah</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="skrol" id="skrol" aria-describedby="skrol">
+                                          </div>
+                                        </div>
+                                     </div>
+
+                                     <!-- Graduate Scheme -->
+                                     <div id="graduate_masih_belajar">
+                                        <div class="input-group">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="kad_pelajar">Kad Pelajar</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="kad_pelajar" id="kad_pelajar" aria-describedby="kad_pelajar">
+                                          </div>
+                                        </div><br>
+                                        <div class="form-group">
+                                            <select name="status_penjamin" id="status_penjamin" class="form-control">
+                                                <option value="">Status Penjamin *</option>
+                                                <option value="penjamin_gaji_tetap">Gaji Tetap</option>
+                                                <option value="penjamin_gaji_tak_tetap">Gaji Tak Tetap (Overtime/Komisen/etc)</option>
+                                            </select>
+                                        </div>
+                                         <!-- For All -->
+                                        <div class="input-group">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="copy_ic_penjamin">Copy IC Penjamin</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="copy_ic_penjamin" id="copy_ic_penjamin" aria-describedby="copy_ic_penjamin">
+                                          </div>
+                                        </div>
+                                        <div class="input-group">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="copy_lesen_penjamin">Copy Lesen Memandu Penjamin</span>
+                                          </div>
+                                          <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="copy_lesen_penjamin" id="copy_lesen_penjamin" aria-describedby="copy_lesen_penjamin">
+                                          </div>
+                                        </div>
+
+                                        <!-- Penjamin gaji tetap -->
+                                        <div id="penjamin_gaji_tetap"><br>
+                                            <div class="input-group">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text"><b>Payslip 3 bulan Penjamin</b></span>
+                                              </div>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="payslip1_penjamin_3bulan">Payslip 1</span>
+                                              </div>
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="payslip1_penjamin_3bulan" id="payslip1_penjamin_3bulan" aria-describedby="payslip1_penjamin_3bulan">
+                                              </div>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="payslip2_penjamin_3bulan">Payslip 2</span>
+                                              </div>
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="payslip2_penjamin_3bulan" id="payslip2_penjamin_3bulan" aria-describedby="payslip2_penjamin_3bulan">
+                                              </div>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="payslip3_penjamin_3bulan">Payslip 3</span>
+                                              </div>
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="payslip3_penjamin_3bulan" id="payslip3_penjamin_3bulan" aria-describedby="payslip3_penjamin_3bulan">
+                                              </div>
+                                            </div>
+
+                                            <br>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                <span class="input-group-text"><b>Bank statement 3 bulan / penyata kwsp Penjamin</b></span>
+                                              </div>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="bank_statement_penjamin_3bulan">Bank statement</span>
+                                              </div>
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="bank_statement_penjamin_3bulan" id="bank_statement_penjamin_3bulan" aria-describedby="bank_statement_penjamin_3bulan">
+                                              </div>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="penyata_kwsp_penjamin_3bulan">Penyata kwsp</span>
+                                              </div>
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="penyata_kwsp_penjamin_3bulan" id="penyata_kwsp_penjamin_3bulan" aria-describedby="penyata_kwsp_penjamin_3bulan">
+                                              </div>
+                                            </div>
+                                         </div>
+
+                                         <!-- Penjamin Gaji Tak Tetap -->
+                                        <div id="penjamin_gaji_tak_tetap"><br>
+                                            <div class="input-group">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text"><b>Payslip 6 bulan Penjamin</b></span>
+                                              </div>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="payslip1_penjamin_6bulan">Payslip 1</span>
+                                              </div>
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="payslip1_penjamin_6bulan" id="payslip1_penjamin_6bulan" aria-describedby="payslip1_penjamin_6bulan">
+                                              </div>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="payslip2_penjamin_6bulan">Payslip 2</span>
+                                              </div>
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="payslip2_penjamin_6bulan" id="payslip2_penjamin_6bulan" aria-describedby="payslip2_penjamin_6bulan">
+                                              </div>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="payslip3_penjamin_6bulan">Payslip 3</span>
+                                              </div>
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="payslip3_penjamin_6bulan" id="payslip3_penjamin_6bulan" aria-describedby="payslip3_penjamin_6bulan">
+                                              </div>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="payslip4_penjamin_6bulan">Payslip 4</span>
+                                              </div>
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="payslip4_penjamin_6bulan" id="payslip4_penjamin_6bulan" aria-describedby="payslip4_penjamin_6bulan">
+                                              </div>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="payslip5_penjamin_6bulan">Payslip 5</span>
+                                              </div>
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="payslip5_penjamin_6bulan" id="payslip5_penjamin_6bulan" aria-describedby="payslip5_penjamin_6bulan">
+                                              </div>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="payslip6_penjamin_6bulan">Payslip 6</span>
+                                              </div>
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="payslip6_penjamin_6bulan" id="payslip6_penjamin_6bulan" aria-describedby="payslip6_penjamin_6bulan">
+                                              </div>
+                                            </div>
+
+                                            <br>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                <span class="input-group-text"><b>Bank statement 6 bulan / penyata kwsp Penjamin</b></span>
+                                              </div>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="bank_statement_penjamin_6bulan">Bank statement</span>
+                                              </div>
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="bank_statement_penjamin_6bulan" id="bank_statement_penjamin_6bulan" aria-describedby="bank_statement_penjamin_6bulan">
+                                              </div>
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="penyata_kwsp_penjamin_6bulan">Penyata kwsp</span>
+                                              </div>
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="penyata_kwsp_penjamin_6bulan" id="penyata_kwsp_penjamin_6bulan" aria-describedby="penyata_kwsp_penjamin_6bulan">
+                                              </div>
+                                            </div>
+                                         </div>
+                                     </div>
+                                </div>
+
+                                <div class="col-lg-12 text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="600ms">
+                                    <div id="success"></div>
+                                    <button type="submit" class="btn btn-primary">Submit Form</button>
+                                </div>
+                            </form>
+                    <div class="clearfix"></div>
+                        <div></div><br>
+                    <div align="center" id="message"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        var list1 = document.getElementById('car_model');
+        list1.options[0] = new Option('Pilihan Model Kerete *', '');
+        list1.options[1] = new Option('Alza', 'Alza');
+        list1.options[2] = new Option('Myvi', 'Myvi');
+        list1.options[3] = new Option('Bezza', 'Bezza');
+        list1.options[4] = new Option('Axia', 'Axia');
+    });
+
+    function getCarModel() {
+        var list1 = document.getElementById('car_model');
+        var list2 = document.getElementById("car_color");
+        var list1SelectedValue = list1.options[list1.selectedIndex].value;
+         
+        if (list1SelectedValue=='Alza')
+        {
+            list2.options.length=0;
+            list2.options[0] = new Option('Pilihan Color Kerete Alza *', '');
+            list2.options[1] = new Option('Granite Grey / Metallic', 'Granite Grey / Metallic');
+            list2.options[2] = new Option('Electric Blue / Metallic', 'Electric Blue / Metallic');
+            list2.options[3] = new Option('Mystical Purple / Metallic', 'Mystical Purple / Metallic');
+            list2.options[4] = new Option('Glittering Silver / Metallic', 'Glittering Silver / Metallic');
+            list2.options[5] = new Option('Ivory White / Metallic', 'Ivory White / Metallic');
+        }
+        else if (list1SelectedValue=='Myvi')
+        {
+            list2.options.length=0;
+            list2.options[0] = new Option('Pilihan Color Kerete Myvi *', '');
+            list2.options[1] = new Option('Granite Grey / Metallic', 'Granite Grey / Metallic');
+            list2.options[2] = new Option('Peppermint Green / Metallic', 'Peppermint Green / Metallic');
+            list2.options[3] = new Option('Lava Red / Metallic', 'Lava Red / Metallic');
+            list2.options[4] = new Option('Mystical Purple / Metallic', 'Mystical Purple / Metallic');
+            list2.options[5] = new Option('Glittering Silver / Metallic', 'Glittering Silver / Metallic');
+            list2.options[6] = new Option('Ivory White / Solid', 'Ivory White / Solid'); 
+        }
+        else if (list1SelectedValue=='Bezza')
+        {
+            list2.options.length=0;
+            list2.options[0] = new Option('Pilihan Color Kerete Bezza *', '');
+            list2.options[1] = new Option('Sugar Brown / Metallic', 'Sugar Brown / Metallic');
+            list2.options[2] = new Option('Ocean Blue / Metallic', 'Ocean Blue / Metallic');
+            list2.options[3] = new Option('Lava Red / Metallic', 'Lava Red / Metallic');
+            list2.options[4] = new Option('Ebony / Metallic', 'Ebony / Metallic');
+            list2.options[5] = new Option('Glittering Silver / Metallic', 'Glittering Silver / Metallic');
+            list2.options[6] = new Option('Ivory White / Solid', 'Ivory White / Solid'); 
+        }
+        else if (list1SelectedValue=='Axia')
+        {
+            list2.options.length=0;
+            list2.options[0] = new Option('Pilihan Color Kerete Axia *', '');
+            list2.options[1] = new Option('Midnight Blue / Metallic', 'Midnight Blue / Metallic');
+            list2.options[2] = new Option('Lava Red / Metallic', 'Lava Red / Metallic');
+            list2.options[3] = new Option('Ebony Black/ Metallic', 'Ebony Black/ Metallic');
+            list2.options[4] = new Option('Glittering Silver / Metallic', 'Glittering Silver / Metallic');
+            list2.options[5] = new Option('Ivory White / Solid', 'Ivory White / Solid'); 
+            list2.options[5] = new Option('Sunflower Yellow / Solid', 'Sunflower Yellow / Solid'); 
+        }
+    }
+
+    $(document).ready(function () {
+        var mohon = document.getElementById('status_permohonan');
+        mohon.options[0] = new Option('Pilih Status Permohonan *', '');
+        mohon.options[1] = new Option('Gaji Tetap', 'gaji_tetap');
+        mohon.options[2] = new Option('Gaji Tak Tetap (Overtime/Komisen/etc)', 'gaji_tak_tetap');
+        mohon.options[3] = new Option('Graduate Scheme (Baru Bekerja)', 'graduate_baru_kerja');
+        mohon.options[4] = new Option('Graduate Scheme (Masih Belajar)', 'graduate_masih_belajar');
+
+        $("#gaji_tak_tetap").hide();
+        $("#graduate_baru_kerja").hide();
+        $("#graduate_masih_belajar").hide();
+    });
+
+    function getPermohonan() {
+        var mohon = document.getElementById('status_permohonan');
+        var list1SelectedValue = mohon.options[mohon.selectedIndex].value;
+         
+        if (list1SelectedValue=='gaji_tetap')
+        {
+            $("#gaji_tetap").show();
+            $("#gaji_tak_tetap").hide();
+            $("#graduate_baru_kerja").hide();
+            $("#graduate_masih_belajar").hide();
+        } else if (list1SelectedValue=='gaji_tak_tetap') 
+        {
+            $("#gaji_tetap").hide();
+            $("#gaji_tak_tetap").show();
+            $("#graduate_baru_kerja").hide();
+            $("#graduate_masih_belajar").hide();
+        } else if (list1SelectedValue=='graduate_baru_kerja') 
+        {
+            $("#gaji_tetap").hide();
+            $("#gaji_tak_tetap").hide();
+            $("#graduate_baru_kerja").show();
+            $("#graduate_masih_belajar").hide();
+        } else if (list1SelectedValue=='graduate_masih_belajar') 
+        {
+            $("#gaji_tetap").hide();
+            $("#gaji_tak_tetap").hide();
+            $("#graduate_baru_kerja").hide();
+            $("#graduate_masih_belajar").show();
+        } else {
+            $("#gaji_tetap").show();
+            $("#gaji_tak_tetap").hide();
+            $("#graduate_baru_kerja").hide();
+            $("#graduate_masih_belajar").hide();
+        }
+    }
+
+    </script>
+
+     <script type="text/javascript">
+        $(document).ready(function() {
+            $("#status_penjamin").change(function()
+            {
+                if($(this).val() == "penjamin_gaji_tak_tetap") {
+                    $("#penjamin_gaji_tak_tetap").show();
+                    $("#penjamin_gaji_tetap").hide();
+                }
+                else {
+                    $("#penjamin_gaji_tetap").show();
+                    $("#penjamin_gaji_tak_tetap").hide();
+                }
+            });
+            $("#penjamin_gaji_tak_tetap").hide();
+        });
+     </script>
         
         <!-- Start Footer Section -->
         <div w3-include-html="footer.html"></div> 
