@@ -58,6 +58,12 @@ $(document).ready(function (e) {
           $("#message").html("Bank Statement Penjamin Diperlukan !").fadeIn();
         } else if (data=='penyata_kwsp_penjamin_required') {
           $("#message").html("Penyata KWSP Penjamin Diperlukan !").fadeIn();
+        } else if (data=='payslip4_penjamin_required') {
+          $("#message").html("Payslip 4 Penjamin Diperlukan !").fadeIn();
+        } else if (data=='payslip5_penjamin_required') {
+          $("#message").html("Payslip 5 Penjamin Diperlukan !").fadeIn();
+        } else if (data=='payslip6_penjamin_required') {
+          $("#message").html("Payslip 6 Penjamin Diperlukan !").fadeIn();
         } else if (data=='success') {
           $("#message").html("Pendaftaran Anda Berjaya. Kami Akan Menyemak Dokumen Anda. Terima Kasih !").fadeIn();
           $("#form")[0].reset(); 
