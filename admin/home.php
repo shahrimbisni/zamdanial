@@ -94,31 +94,30 @@ if(isset($_POST['but_logout'])){
                                     <td>'.$row["car_color"].'</td>
                                     <td>'.$row["mesej"].'</td>
                                     <td>'.$row["status_permohonan"].'</td>
-                                    <td>'."<a href='database/copy_ic/". $row["copy_ic"] ."' target='_blank'>" . 'view' ."</a>".'</td>
-                                    <td>'."<a href='database/copy_lesen/". $row["copy_lesen"] ."' target='_blank'>" . 'view' ."</a>".'</td>
-                                    <td>'."<a href='database/payslip1/". $row["payslip1"] ."' target='_blank'>" . ($row["payslip1"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/payslip2/". $row["payslip2"] ."' target='_blank'>" . ($row["payslip2"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/payslip3/". $row["payslip3"] ."' target='_blank'>" . ($row["payslip3"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/payslip4/". $row["payslip4"] ."' target='_blank'>" . ($row["payslip4"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/payslip5/". $row["payslip5"] ."' target='_blank'>" . ($row["payslip5"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/payslip6/". $row["payslip6"] ."' target='_blank'>" . ($row["payslip6"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/bank_statement/". $row["bank_statement"] ."' target='_blank'>" . ($row["bank_statement"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/penyata_kwsp/". $row["penyata_kwsp"] ."' target='_blank'>" . ($row["penyata_kwsp"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/surat_tawaran_kerja/". $row["surat_tawaran_kerja"] ."' target='_blank'>" . ($row["surat_tawaran_kerja"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/skrol/". $row["skrol"] ."' target='_blank'>" . ($row["skrol"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/kad_pelajar/". $row["kad_pelajar"] ."' target='_blank'>" . ($row["kad_pelajar"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/copy_ic/". $row["copy_ic"] ."' target='_blank'>" . 'view' ."</a>".'</td>
+                                    <td>'."<a href='../database/copy_lesen/". $row["copy_lesen"] ."' target='_blank'>" . 'view' ."</a>".'</td>
+                                    <td>'."<a href='../database/payslip1/". $row["payslip1"] ."' target='_blank'>" . ($row["payslip1"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/payslip2/". $row["payslip2"] ."' target='_blank'>" . ($row["payslip2"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/payslip3/". $row["payslip3"] ."' target='_blank'>" . ($row["payslip3"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/payslip4/". $row["payslip4"] ."' target='_blank'>" . ($row["payslip4"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/payslip5/". $row["payslip5"] ."' target='_blank'>" . ($row["payslip5"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/payslip6/". $row["payslip6"] ."' target='_blank'>" . ($row["payslip6"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/bank_statement/". $row["bank_statement"] ."' target='_blank'>" . ($row["bank_statement"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/penyata_kwsp/". $row["penyata_kwsp"] ."' target='_blank'>" . ($row["penyata_kwsp"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/surat_tawaran_kerja/". $row["surat_tawaran_kerja"] ."' target='_blank'>" . ($row["surat_tawaran_kerja"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/skrol/". $row["skrol"] ."' target='_blank'>" . ($row["skrol"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/kad_pelajar/". $row["kad_pelajar"] ."' target='_blank'>" . ($row["kad_pelajar"] == '-' ? '' : 'view') ."</a>".'</td>
                                     <td>'.$row["status_penjamin"].'</td>
-                                    <td>'."<a href='database/penjamin_copy_ic/". $row["copy_ic_penjamin"] ."' target='_blank'>" . ($row["copy_ic_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/penjamin_copy_lesen/". $row["copy_lesen_penjamin"] ."' target='_blank'>" . ($row["copy_lesen_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/penjamin_payslip1/". $row["payslip1_penjamin"] ."' target='_blank'>" . ($row["payslip1_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/penjamin_payslip2/". $row["payslip2_penjamin"] ."' target='_blank'>" . ($row["payslip2_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/penjamin_payslip3/". $row["payslip3_penjamin"] ."' target='_blank'>" . ($row["payslip3_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/penjamin_payslip4/". $row["payslip4_penjamin"] ."' target='_blank'>" . ($row["payslip4_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/penjamin_payslip5/". $row["payslip5_penjamin"] ."' target='_blank'>" . ($row["payslip5_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/penjamin_payslip6/". $row["payslip6_penjamin"] ."' target='_blank'>" . ($row["payslip6_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
-                                    <td>'."<a href='database/penjamin_bank_statement/". $row["bank_statement_penjamin"] ."' target='_blank'>" . ($row["bank_statement_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
-
-                                    <td>'."<a href='database/penjamin_penyata_kwsp/". $row["penyata_kwsp_penjamin"] ."' target='_blank'>" . ($row["penyata_kwsp_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/penjamin_copy_ic/". $row["copy_ic_penjamin"] ."' target='_blank'>" . ($row["copy_ic_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/penjamin_copy_lesen/". $row["copy_lesen_penjamin"] ."' target='_blank'>" . ($row["copy_lesen_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/penjamin_payslip1/". $row["payslip1_penjamin"] ."' target='_blank'>" . ($row["payslip1_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/penjamin_payslip2/". $row["payslip2_penjamin"] ."' target='_blank'>" . ($row["payslip2_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/penjamin_payslip3/". $row["payslip3_penjamin"] ."' target='_blank'>" . ($row["payslip3_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/penjamin_payslip4/". $row["payslip4_penjamin"] ."' target='_blank'>" . ($row["payslip4_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/penjamin_payslip5/". $row["payslip5_penjamin"] ."' target='_blank'>" . ($row["payslip5_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/penjamin_payslip6/". $row["payslip6_penjamin"] ."' target='_blank'>" . ($row["payslip6_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/penjamin_bank_statement/". $row["bank_statement_penjamin"] ."' target='_blank'>" . ($row["bank_statement_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
+                                    <td>'."<a href='../database/penjamin_penyata_kwsp/". $row["penyata_kwsp_penjamin"] ."' target='_blank'>" . ($row["penyata_kwsp_penjamin"] == '-' ? '' : 'view') ."</a>".'</td>
                                </tr>  
                                ';  
                           }  
