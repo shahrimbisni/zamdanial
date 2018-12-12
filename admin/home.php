@@ -1,22 +1,41 @@
 <?php
-  include_once 'database/db.php';
-  $query ="SELECT * FROM uploading";  
-  $result = mysqli_query($db, $query);  
-?> 
+include "config.php";
 
- <!DOCTYPE html>  
- <html>  
-      <head>  
-           <link rel="icon" href="asset/images/perodua.ico">
+$query ="SELECT * FROM uploading";  
+$result = mysqli_query($con, $query);  
+
+// Check user login or not
+if(!isset($_SESSION['uname'])){
+    header('Location: index.php');
+}
+
+// logout
+if(isset($_POST['but_logout'])){
+    session_destroy();
+    header('Location: index.php');
+}
+?>
+<!doctype html>
+<html>
+    <head>  
+           <link rel="icon" href="../asset/images/perodua.ico">
            <title>Senarai Pelanggan</title>  
            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
            <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
            <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />  
-      </head>  
-      <body>  
-           <br /><br />  
+    </head> 
+    
+    <body>
+        <br><br>  
+        <div align="center">
+            <form method='post' action="">
+                <input type="submit" value="Logout" name="but_logout">
+            </form>
+        </div>
+
+        <br>
            <div class="container">  
                 <h3 align="center">Senarai Pelanggan MyPerodua</h3>  
                 <br />  
@@ -104,11 +123,12 @@
                           ?>  
                      </table>  
                 </div>  
-           </div>  
-      </body>  
- </html>  
- <script>  
+           </div> 
+    </body>
+</html>
+
+<script>  
  $(document).ready(function(){  
       $('#customer_data').DataTable();  
  });  
- </script>  
+ </script> 
