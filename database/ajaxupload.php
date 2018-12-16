@@ -94,11 +94,11 @@ switch ($status_permohonan) {
 
 				$copy_ic = strtolower($copy_ic); 
 				$copy_lesen = strtolower($copy_lesen); 
-				$copy_payslip1_3bulan = strtolower($payslip1_3bulan); 
-				$copy_payslip2_3bulan = strtolower($payslip2_3bulan); 
-				$copy_payslip3_3bulan = strtolower($payslip3_3bulan); 
-				$copy_bank_statement_3bulan = strtolower($bank_statement_3bulan); 
-				$copy_penyata_kwsp_3bulan = strtolower($penyata_kwsp_3bulan); 
+				$payslip1_3bulan = strtolower($payslip1_3bulan); 
+				$payslip2_3bulan = strtolower($payslip2_3bulan); 
+				$payslip3_3bulan = strtolower($payslip3_3bulan); 
+				$bank_statement_3bulan = strtolower($bank_statement_3bulan); 
+				$penyata_kwsp_3bulan = strtolower($penyata_kwsp_3bulan); 
 
 				if((move_uploaded_file($tmp_copy_ic,$path1)) && (move_uploaded_file($tmp_copy_lesen,$path2)) && (move_uploaded_file($tmp_payslip1_3bulan,$path3)) && (move_uploaded_file($tmp_payslip2_3bulan,$path4)) && (move_uploaded_file($tmp_payslip3_3bulan,$path5)) && (move_uploaded_file($tmp_bank_statement_3bulan,$path6)) && (move_uploaded_file($tmp_penyata_kwsp_3bulan,$path7)))
 				{
