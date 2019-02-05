@@ -150,6 +150,9 @@
                                 <a href="index.html">Home</a>
                             </li>
                             <li>
+                                <a href="aruz.html">Aruz</a>
+                            </li>
+                            <li>
                                 <a href="alza.html">Alza</a>
                             </li>
                             <li>
@@ -696,6 +699,7 @@
             list1.options[2] = new Option('Myvi', 'Myvi');
             list1.options[3] = new Option('Bezza', 'Bezza');
             list1.options[4] = new Option('Axia', 'Axia');
+            list1.options[5] = new Option('Aruz', 'Aruz');
         });
 
         function getCarModel() {
@@ -741,10 +745,20 @@
                 list2.options[0] = new Option('Pilihan Color Kerete Axia *', '');
                 list2.options[1] = new Option('Midnight Blue / Metallic', 'Midnight Blue / Metallic');
                 list2.options[2] = new Option('Lava Red / Metallic', 'Lava Red / Metallic');
-                list2.options[3] = new Option('Ebony Black/ Metallic', 'Ebony Black/ Metallic');
+                list2.options[3] = new Option('Ebony Black / Metallic', 'Ebony Black/ Metallic');
                 list2.options[4] = new Option('Glittering Silver / Metallic', 'Glittering Silver / Metallic');
                 list2.options[5] = new Option('Ivory White / Solid', 'Ivory White / Solid'); 
-                list2.options[5] = new Option('Sunflower Yellow / Solid', 'Sunflower Yellow / Solid'); 
+                list2.options[6] = new Option('Sunflower Yellow / Solid', 'Sunflower Yellow / Solid'); 
+            }
+            else if (list1SelectedValue=='Aruz')
+            {
+                list2.options.length=0;
+                list2.options[0] = new Option('Pilihan Color Kerete Aruz *', '');
+                list2.options[1] = new Option('Amazon Green / Metallic', 'Amazon Green / Metallic');
+                list2.options[2] = new Option('Granite Grey / Metallic', 'Granite Grey / Metallic');
+                list2.options[3] = new Option('Electric Blue / Metallic', 'Electric Blue / Metallic');
+                list2.options[4] = new Option('Glittering Silver / Metallic', 'Glittering Silver / Metallic');
+                list2.options[5] = new Option('Ivory White / Solid', 'Ivory White / Solid'); 
             }
         }
 
